@@ -1,10 +1,12 @@
 import React from "react";
 import "./Header.css";
-import 'boxicons';
-import { Link } from 'react-router-dom';
-
+import "boxicons";
+import { Link } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
 function Header() {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="header">
       <Link to="/">
@@ -16,7 +18,9 @@ function Header() {
 
       <div className="header__search">
         <input className="header__searchInput" type="text" />
-        <div className="header__searchIcon"><box-icon name='search-alt-2'/></div>
+        <div className="header__searchIcon">
+          <box-icon name="search-alt-2" />
+        </div>
       </div>
 
       <div className="header__nav">
@@ -37,11 +41,12 @@ function Header() {
 
         <Link to="/checkout">
           <div className="header__optionBasket">
-              <box-icon name='cart' color="white"/>
-              <span className="header__optionLineTwo header__basketCount">0</span>
+            <box-icon name="cart" color="white" />
+            <span className="header__optionLineTwo header__basketCount">
+              {basket?.length}
+            </span>
           </div>
         </Link>
-
       </div>
     </div>
   );
