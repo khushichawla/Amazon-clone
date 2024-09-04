@@ -10,10 +10,10 @@ function App() {
     // BEM Convention
     <Router>
       <div className="app">
-        <Header />
         <Routes>
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/login" element={<Login/>}/> */}
+          <Route exact path="/" element={<><Header/><Home/></>}/>
+          <Route exact path="/checkout" element={<><Header/><Checkout/></>}/>
         </Routes>
       </div>
     </Router>
