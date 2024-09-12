@@ -19,7 +19,7 @@ function Home() {
           <Product
             id="2"
             title="IMNISHNAY Silicone Cloud Touch Lamp for Baby Night Light for Kids Gifts for Teen Girls Boys Women Lamp Cute Aesthetic Baby Room Decor Gifts for Girlfreinds Item with 7 multicolur (Cloud)"
-            price={21.99}
+            price={12.99}
             image="https://imgur.com/qqGWLp2.jpg"
             rating={4}
           />
@@ -29,7 +29,7 @@ function Home() {
           <Product
             id="3"
             title="Cat Keycap Esc keycaps DIY Personality Custom Cartoon Anime Keycap Replacement Bottom Backlit Keycaps Gift for Mechanical Keyboard KeyCap OEM R4 Height (Transparent) (White), 3.5x3.5x2cm"
-            price={7.99}
+            price={27.99}
             image="https://imgur.com/CX47duO.jpg"
             rating={4}
           />
@@ -53,7 +53,7 @@ function Home() {
           <Product
             id="6"
             title="LG 108 cm (43 inches) Wondertainment Series 4K Ultra HD Smart LED TV 43UR7500PSC (Dark Iron Gray)"
-            price={15.99}
+            price={495.99}
             image="https://imgur.com/Pw7Y7bU.jpg"
             rating={3}
           />
