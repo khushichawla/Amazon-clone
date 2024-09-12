@@ -13,7 +13,9 @@ function formatCurrency(value) {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(value);
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(Number(value).toFixed(2));
 }
 
 function Payment() {
@@ -29,19 +31,22 @@ function Payment() {
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
 
-  // useEffect(() => {
-  //   // generate the special stripe secret which allows us to charge a customer
-  //   const getClientSecret = async () => {
-  //     const response = await axios({
-  //       method: "post",
-  //       // Stripe expects the total in a currencies subunits
-  //       url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
-  //     });
-  //     setClientSecret(response.data.clientSecret);
-  //   };
+  useEffect(() => {
+    //   // generate the special stripe secret which allows us to charge a customer
+    const getClientSecret = async () => {
+      try {
+        const response = await axios.post(
+          `/payments/create?total=${getBasketTotal(basket) * 100}`
+        );
+        setClientSecret(response.data.clientSecret);
+      } catch (error) {
+        console.error("Error fetching client secret:", error);
+        setError("Failed to create payment. Please try again.");
+      }
+    };
 
-  //   getClientSecret();
-  // }, [basket]);
+    getClientSecret();
+  }, [basket]);
 
   console.log("THE SECRET IS >>>", clientSecret);
   console.log("👱", user);
